@@ -16,3 +16,8 @@ export async function getTrendingMovies() {
   const response = await axios.get("trending/movie/week", options);
   return response.data.results;
 }
+
+export async function getDetailsMovie(id) {
+  const response = await axios.get(`movie/${id}`, options);
+  return response.data;
+}
