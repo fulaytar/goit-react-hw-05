@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDetailsMovie } from "../../tmdb-api";
 import Loader from "../../components/Loader/Loader";
@@ -16,8 +16,6 @@ export default function MovieDetailsPage() {
 
   const defaultImg =
     "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg";
-  const movie = getDetailsMovie(movieId);
-  console.log(movie);
 
   useEffect(() => {
     async function handleClickMovie() {
@@ -41,7 +39,7 @@ export default function MovieDetailsPage() {
     <section>
       {loading && <Loader />}
       {error && <NotFoundPage />}
-      {!error && (
+      {!error && !loading && (
         <div className={css.container}>
           <img
             src={
@@ -50,7 +48,7 @@ export default function MovieDetailsPage() {
                 : defaultImg
             }
             alt={movies.title}
-            width={"300px"}
+            height={"300px"}
           />
           <div>
             <h2 className={css.title}>
@@ -66,6 +64,15 @@ export default function MovieDetailsPage() {
           </div>
         </div>
       )}
+      <ul className={css.links}>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
     </section>
   );
 }

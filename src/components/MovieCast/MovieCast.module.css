@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+.error {
+  color: #ef4040;
+  width: 360px;
+  text-align: center;
+}

@@ -1,11 +1,24 @@
 .container {
   display: flex;
-  justify-content: center;
   gap: 15px;
+  max-width: 96%;
+  margin-left: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
 }
-.title{
-    margin-bottom: 15px;
+.title {
+  margin-bottom: 15px;
 }
-.text{
-    margin-bottom: 12px;
+.text {
+  margin-bottom: 12px;
+}
+.links {
+  margin-left: 20px;
+  display: flex;
+  max-width: 96%;
+  margin-top: 20px;
+  column-gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
 }

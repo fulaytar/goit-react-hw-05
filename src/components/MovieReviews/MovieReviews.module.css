@@ -1,0 +1,28 @@
+.error {
+  color: #ef4040;
+  width: 360px;
+  text-align: center;
+}
+.reviewsList {
+  max-width: 1260px;
+  padding-left: 20px;
+  padding-right: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.authorReviewName {
+  margin-bottom: 12px;
+}
+
+.reviewItem {
+  padding: 20px 20px 20px 0px;
+  border: solid 1px rgb(247, 246, 241, 0.2);
+  border-radius: 10px;
+}
+
+.textReview {
+  line-height: 1.6;
+}

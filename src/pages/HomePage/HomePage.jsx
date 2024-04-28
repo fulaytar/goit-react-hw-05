@@ -28,11 +28,11 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
+    <section className={css.container}>
       <h1 className={css.title}>Trending Today</h1>
       {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />}
       {isLoading && <Loader />}
       {error && <NotFoundPage />}
-    </>
+    </section>
   );
 }
