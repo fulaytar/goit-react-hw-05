@@ -77,7 +77,6 @@ export default function MovieCast() {
           На жаль, сталася помилка! Спробуйте перезавантажити цю сторінку!
         </p>
       )}
-      <Toaster position="top-right" containerStyle={{ zIndex: 99999999 }} />
     </div>
   );
 }

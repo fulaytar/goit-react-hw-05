@@ -18,16 +18,7 @@ export default function MovieReviews() {
         setLoading(true);
         const data = await getMovieReviews(movieId);
         if (!data.results.length) {
-          toast(
-            "На жаль, зараз немає відгуків до цього фільму. Будь ласка спробуйте пізніше",
-            {
-              style: {
-                color: "#ffffff",
-                backgroundColor: "#FF8C00",
-              },
-            }
-          );
-          return;
+          return setError(true);
         }
         setReviews((prevReview) => {
           return reviews.length > 0
@@ -56,9 +47,8 @@ export default function MovieReviews() {
         </ul>
       )}
       {error && (
-        <p className={css.error}>На жаль, сталася помилка! Спробуйте перезавантажити цю сторінку!</p>
+        <p className={css.error}>На жаль, сталася помилка! Даних немає...</p>
       )}
-      <Toaster position="top-right" containerStyle={{ zIndex: 99999999 }} />
     </div>
   );
 }
