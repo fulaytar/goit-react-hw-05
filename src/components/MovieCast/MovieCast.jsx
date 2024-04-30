@@ -5,7 +5,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import Loader from "../Loader/Loader";
 import css from "./MovieCast.module.css";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -22,17 +21,13 @@ export default function MovieCast() {
       try {
         setIsLoading(true);
         const data = await getMovieCast(movieId);
-        console.log(data);
         if (!data.cast.length) {
-          toast(
-            "На жаль, ми зараз не маємо даних про акторів цього фільму. Будь ласка спробуйте пізніше",
-            {
-              style: {
-                color: "#ffffff",
-                backgroundColor: "#FF8C00",
-              },
-            }
-          );
+          toast("Sorry, no actor data available. Try again later.", {
+            style: {
+              color: "#ffffff",
+              backgroundColor: "#FF8C00",
+            },
+          });
           return;
         }
         // Відбір із масиву учасників фільму тільки акторів
@@ -78,7 +73,9 @@ export default function MovieCast() {
         </ul>
       )}
       {error && (
-        <p className={css.error}>На жаль, сталася помилка! Спробуйте перезавантажити цю сторінку!</p>
+        <p className={css.error}>
+          На жаль, сталася помилка! Спробуйте перезавантажити цю сторінку!
+        </p>
       )}
       <Toaster position="top-right" containerStyle={{ zIndex: 99999999 }} />
     </div>

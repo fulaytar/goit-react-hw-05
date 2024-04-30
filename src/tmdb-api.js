@@ -43,3 +43,11 @@ export async function getMovieReviews(id) {
 
   return response.data;
 }
+
+export async function searchMovies(search) {
+  const response = await axios.get(
+    `search/movie?page=1&query=${search}`,
+    options
+  );
+  return response.data.results;
+}
