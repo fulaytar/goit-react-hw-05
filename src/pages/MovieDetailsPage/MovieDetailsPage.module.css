@@ -22,3 +22,20 @@
   margin-bottom: 10px;
   border-bottom: 1px solid black;
 }
+.linkGoBack {
+  display: inline-block;
+  padding: 8px 16px;
+  width: 100px;
+  background-color: orange; /* Задання оранжевого кольору */
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* Плавні переходи для кольорів */
+}
+
+.linkGoBack:hover {
+  background-color: #ff7f00; /* Зміна відтінку при наведенні */
+}

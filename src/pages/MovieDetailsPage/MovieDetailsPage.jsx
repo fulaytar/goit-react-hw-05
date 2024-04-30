@@ -1,5 +1,5 @@
-import { Link, useParams, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useParams, Outlet, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import { getDetailsMovie } from "../../tmdb-api";
 import Loader from "../../components/Loader/Loader";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
@@ -13,6 +13,17 @@ export default function MovieDetailsPage() {
   const [rating, setRating] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  // Повернення на попередню сторінку
+  const location = useLocation();
+  // Використання useRef для збереження попереднього значення location.state при рендері компонентів Cast або Review
+  const backLink = useRef(location.state);
+  // На випадок, коли користувач перейшов по збереженому раніше посиланню фільму в новій вкладці браузера
+  useEffect(() => {
+    {
+      !location.state && (backLink.current = "/");
+    }
+  }, [movieId]);
 
   const defaultImg =
     "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg";
@@ -37,6 +48,9 @@ export default function MovieDetailsPage() {
 
   return (
     <section>
+      <Link className={css.linkGoBack} to={backLink.current}>
+        Go back{" "}
+      </Link>
       {loading && <Loader />}
       {error && <NotFoundPage />}
       {!error && !loading && (
