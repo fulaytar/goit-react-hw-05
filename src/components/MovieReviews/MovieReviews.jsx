@@ -47,7 +47,7 @@ export default function MovieReviews() {
         </ul>
       )}
       {error && (
-        <p className={css.error}>На жаль, сталася помилка! Даних немає...</p>
+        <p className={css.error}>Sorry, an error occurred, there is no data</p>
       )}
     </div>
   );
