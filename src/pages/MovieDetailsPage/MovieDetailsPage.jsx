@@ -14,16 +14,8 @@ export default function MovieDetailsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  // Повернення на попередню сторінку
   const location = useLocation();
-  // Використання useRef для збереження попереднього значення location.state при рендері компонентів Cast або Review
-  const backLink = useRef(location.state);
-  // На випадок, коли користувач перейшов по збереженому раніше посиланню фільму в новій вкладці браузера
-  useEffect(() => {
-    {
-      !location.state && (backLink.current = "/");
-    }
-  }, [movieId]);
+  const backLink = useRef(location.state || "/"); // Ініціалізуємо useRef з location.state або "/"
 
   const defaultImg =
     "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg";

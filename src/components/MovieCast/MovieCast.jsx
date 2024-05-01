@@ -15,6 +15,7 @@ export default function MovieCast() {
   const [actors, setActors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [dataAvailable, setDataAvailable] = useState(true); // Доданий стан для відстеження наявності даних про акторів
 
   useEffect(() => {
     async function getCast() {
@@ -28,6 +29,7 @@ export default function MovieCast() {
               backgroundColor: "#FF8C00",
             },
           });
+          setDataAvailable(false); // Встановлюємо значення стану на false, якщо немає даних про акторів
           return;
         }
         // Відбір із масиву учасників фільму тільки акторів
@@ -36,7 +38,7 @@ export default function MovieCast() {
         );
         setActors(onlyActors);
         if (onlyActors.length === 0) {
-          return setError(true);
+          setDataAvailable(false); // Встановлюємо значення стану на false, якщо немає даних про акторів
         }
       } catch (error) {
         setError(true);
@@ -50,6 +52,11 @@ export default function MovieCast() {
   return (
     <div>
       {isLoading && <Loader />}
+      {!dataAvailable && (
+        <p className={css.error}>
+          Sorry, no actor data available for this movie.
+        </p>
+      )}
       {actors.length > 0 && !error && (
         <ul className={css.list}>
           {actors.map((actor) => (
