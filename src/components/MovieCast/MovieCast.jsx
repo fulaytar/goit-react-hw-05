@@ -34,11 +34,10 @@ export default function MovieCast() {
         const onlyActors = data.cast.filter(
           (actor) => actor.known_for_department === "Acting"
         );
-        setActors((prevActors) => {
-          return actors.length > 0
-            ? [...prevActors, ...onlyActors]
-            : onlyActors;
-        });
+        setActors(onlyActors);
+        if (onlyActors.length === 0) {
+          return setError(true);
+        }
       } catch (error) {
         setError(true);
       } finally {
