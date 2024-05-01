@@ -1,7 +1,7 @@
 .error {
   color: #ef4040;
-  width: 360px;
-  text-align: center;
+  display: block;
+  margin-left: 20px;
 }
 .reviewsList {
   max-width: 1260px;
