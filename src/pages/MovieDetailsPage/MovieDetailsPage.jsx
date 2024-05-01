@@ -80,10 +80,14 @@ export default function MovieDetailsPage() {
       )}
       <ul className={css.links}>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" className={css.linkTo}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" className={css.linkTo}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <Suspense fallback={null}>

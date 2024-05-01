@@ -39,3 +39,19 @@
 .linkGoBack:hover {
   background-color: #ff7f00; /* Зміна відтінку при наведенні */
 }
+
+.linkTo {
+  display: block;
+  padding: 8px 16px;
+  width: 100px;
+  background-color: orange; /* Задання оранжевого кольору */
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* Плавні переходи для кольорів */
+}
+
+.linkTo:hover {
+  background-color: #ff7f00; /* Зміна відтінку при наведенні */
+}
